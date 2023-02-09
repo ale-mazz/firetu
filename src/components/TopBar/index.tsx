@@ -1,20 +1,34 @@
 import React from "react";
-import { Text, View } from "react-native";
-import FastImage from "react-native-fast-image";
+import { TouchableOpacity, View } from "react-native";
+import { Image } from "expo-image";
+import { Feather } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 interface Props {}
 
 const TopBar: React.FC<Props> = () => {
+  const navigation = useNavigation<any>();
+
   return (
-    <View style={{ backgroundColor: "red" }}>
-      <FastImage
+    <View
+      style={{
+        backgroundColor: "white",
+        justifyContent: "space-between",
+        alignItems: "center",
+        flexDirection: "row",
+      }}
+    >
+      <Image
+        contentFit={"cover"}
         source={require("../../assets/homeLogo.jpg")}
-        resizeMode={FastImage.resizeMode.cover}
         style={{
-          height: 300,
-          width: 300,
+          height: 52,
+          width: 52,
         }}
       />
+      <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
+        <Feather name="settings" size={26} color="black" />
+      </TouchableOpacity>
     </View>
   );
 };
