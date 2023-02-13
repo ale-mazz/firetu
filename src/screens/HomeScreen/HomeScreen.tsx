@@ -5,14 +5,12 @@ import { mockData } from "./mockData";
 import TopBar from "../../components/TopBar";
 import TodoComponent from "../../components/TodoComponent";
 
-interface Props {}
+const renderItem = ({ item }: ListRenderItemInfo<any>) => {
+  return <TodoComponent item={item} />;
+};
 
-const HomeScreen: React.FC<Props> = () => {
+const HomeScreen = () => {
   console.log("render Homescreen");
-  const renderItem = ({ item }: ListRenderItemInfo<any>) => {
-    return <TodoComponent item={item} />;
-  };
-
   return (
     <SafeAreaView
       style={{ flex: 1, backgroundColor: "white", paddingHorizontal: 12 }}

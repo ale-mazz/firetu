@@ -1,5 +1,11 @@
+import React from "react";
+import { RecoilRoot } from "recoil";
 import RootNavigator from "./src/navigation";
 
 export default function App() {
-  return <RootNavigator />;
+  return (
+    <RecoilRoot>
+      <RootNavigator />
+    </RecoilRoot>
+  );
 }
