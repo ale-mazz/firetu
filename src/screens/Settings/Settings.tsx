@@ -1,11 +1,11 @@
 import React from "react";
-import { Button, Text, TouchableOpacity, View } from "react-native";
+import { Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 interface Props {}
 
-const Settings: React.FC<Props> = () => {
+const Settings = ({}: Props) => {
   const navigation = useNavigation();
   return (
     <SafeAreaView>
