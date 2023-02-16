@@ -25,7 +25,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "to.do.firetu"
     },
     "web": {
       "favicon": "./assets/favicon.png"
