@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform,
   StyleSheet,
   Text,
   TextInput,
@@ -19,6 +22,27 @@ const TodoForm = () => {
   const [todoText, setTodoText] = useState<string>("");
   const navigation = useNavigation();
   const { addTodo } = useAddTodo();
+  const [isKeyboardVisible, setKeyboardVisible] = useState(false);
+
+  useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener(
+      "keyboardDidShow",
+      () => {
+        setKeyboardVisible(true); // or some other action
+      }
+    );
+    const keyboardDidHideListener = Keyboard.addListener(
+      "keyboardDidHide",
+      () => {
+        setKeyboardVisible(false); // or some other action
+      }
+    );
+
+    return () => {
+      keyboardDidHideListener.remove();
+      keyboardDidShowListener.remove();
+    };
+  }, []);
 
   const addNewTodoAndExit = async () => {
     navigation.goBack();
@@ -32,37 +56,50 @@ const TodoForm = () => {
     }
   };
 
+  const onBackgroundPress = () => {
+    if (isKeyboardVisible) {
+      Keyboard.dismiss();
+    } else {
+      navigation.goBack();
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity
         style={styles.fakeButton}
-        onPress={() => navigation.goBack()}
+        onPress={onBackgroundPress}
         activeOpacity={1}
       >
-        <View style={styles.modalView} onStartShouldSetResponder={() => true}>
-          <Text style={styles.header}>Insert your new Todo</Text>
-          <TextInput
-            multiline={true}
-            onChangeText={(e) => setTodoText(e)}
-            value={todoText}
-            placeholder={"Meet Jane tomorrow..."}
-            style={styles.input}
-          />
+        <KeyboardAvoidingView
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          keyboardVerticalOffset={300}
+        >
+          <View style={styles.modalView} onStartShouldSetResponder={() => true}>
+            <Text style={styles.header}>Insert your new Todo</Text>
+            <TextInput
+              multiline={true}
+              onChangeText={(e) => setTodoText(e)}
+              value={todoText}
+              placeholder={"Meet Jane tomorrow..."}
+              style={styles.input}
+            />
 
-          <PriorityPicker
-            open={isPickerOpened}
-            setOpen={setIsPickerOpened}
-            value={value}
-            setValue={setValue}
-            multiple={false}
-          />
-          <TouchableOpacity
-            onPress={addNewTodoAndExit}
-            style={styles.addButton}
-          >
-            <Text style={styles.buttonText}>Add</Text>
-          </TouchableOpacity>
-        </View>
+            <PriorityPicker
+              open={isPickerOpened}
+              setOpen={setIsPickerOpened}
+              value={value}
+              setValue={setValue}
+              multiple={false}
+            />
+            <TouchableOpacity
+              onPress={addNewTodoAndExit}
+              style={styles.addButton}
+            >
+              <Text style={styles.buttonText}>Add</Text>
+            </TouchableOpacity>
+          </View>
+        </KeyboardAvoidingView>
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -81,7 +118,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFBEB",
     padding: 15,
     borderRadius: 8,
-    width: "80%",
+    width: "85%",
   },
   header: { fontSize: 18, fontFamily: "Lato_700Bold" },
   input: {
