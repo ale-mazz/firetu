@@ -1,9 +1,13 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity, View, ViewProps } from "react-native";
-import { Image } from "expo-image";
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ViewProps,
+} from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import { homeLogo } from "../../assets";
 
 interface Props extends ViewProps {}
 
@@ -12,7 +16,11 @@ const TopBar = ({ ...rest }: Props) => {
 
   return (
     <View style={styles.container} {...rest}>
-      <Image contentFit={"cover"} source={homeLogo} style={styles.image} />
+      <View style={styles.headers}>
+        <Text style={styles.header}>F</Text>
+        <Text style={styles.header2}>iretu</Text>
+      </View>
+
       <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
         <Feather name="settings" size={26} color="black" />
       </TouchableOpacity>
@@ -22,7 +30,7 @@ const TopBar = ({ ...rest }: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white",
+    backgroundColor: "#F8CBA6",
     justifyContent: "space-between",
     alignItems: "center",
     flexDirection: "row",
@@ -31,6 +39,9 @@ const styles = StyleSheet.create({
     height: 52,
     width: 52,
   },
+  headers: { flexDirection: "row", marginBottom: 10 },
+  header: { fontSize: 40, fontFamily: "Lato_900Black" },
+  header2: { fontSize: 40, fontFamily: "Lato_400Regular" },
 });
 
 export default TopBar;

@@ -1,1 +1,1 @@
-export const homeLogo = require("./homeLogo.jpg");
+// ASSETS EXPORT INDEX

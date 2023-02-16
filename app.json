@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "firetu",
-    "slug": "firetu",
+    "name": "Firetu",
+    "slug": "Firetu",
     "version": "0.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.jpg",
@@ -19,7 +19,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "social.projects.firetu"
+      "bundleIdentifier": "to.do.firetu"
     },
     "android": {
       "adaptiveIcon": {

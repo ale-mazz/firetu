@@ -1,5 +1,11 @@
 import React from "react";
-import { FlatList, ListRenderItemInfo, Text, View } from "react-native";
+import {
+  FlatList,
+  ListRenderItemInfo,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import TopBar from "../../components/TopBar";
 import TodoComponent from "../../components/TodoComponent";
@@ -23,23 +29,28 @@ const renderItem = ({ item }: ListRenderItemInfo<any>) => {
   );
 };
 
+const ListEmptyComponent = () => {
+  return (
+    <View style={styles.emptyView}>
+      <Text style={styles.emptyText}>No todos for today!</Text>
+    </View>
+  );
+};
+
 const HomeScreen = () => {
   useListenTodos();
   const navigation = useNavigation<any>();
   const todos = useRecoilValue(todoListState);
 
   return (
-    <SafeAreaView
-      style={{ flex: 1, backgroundColor: "white", paddingHorizontal: 12 }}
-    >
+    <SafeAreaView style={styles.container}>
       <TopBar />
-      <View style={{ flex: 1, backgroundColor: "#F2F2F2", borderRadius: 12 }}>
-        <Text style={{ fontSize: 21, fontWeight: "bold", margin: 8 }}>
-          Today
-        </Text>
+      <View style={styles.homeView}>
+        <Text style={styles.header}>Todos</Text>
         <FlatList
           data={todos}
           renderItem={renderItem}
+          ListEmptyComponent={ListEmptyComponent}
           showsVerticalScrollIndicator={false}
         />
       </View>
@@ -47,5 +58,29 @@ const HomeScreen = () => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: "#F8CBA6", paddingHorizontal: 12 },
+  homeView: {
+    flex: 1,
+    backgroundColor: "#FFE7CC",
+    borderRadius: 12,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  emptyView: { flex: 1, alignItems: "center", marginTop: 200 },
+  header: {
+    fontSize: 21,
+    fontFamily: "Lato_700Bold",
+    margin: 8,
+  },
+  emptyText: { fontSize: 21, fontFamily: "Lato_400Regular", margin: 8 },
+});
 
 export default HomeScreen;

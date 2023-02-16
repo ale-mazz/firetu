@@ -1,3 +1,6 @@
+import firebase from "firebase/compat";
+import Timestamp = firebase.firestore.Timestamp;
+
 export interface TodoAuthor {
   nickname: string;
   profilePicUri: string;
@@ -14,4 +17,5 @@ export interface Todo {
   text: string;
   completed: boolean;
   priority: TodoPriority;
+  timestamp: Timestamp;
 }
