@@ -31,8 +31,10 @@ const renderItem = ({ item }: ListRenderItemInfo<any>) => {
 
 const ListEmptyComponent = () => {
   return (
-    <View style={styles.emptyView}>
-      <Text style={styles.emptyText}>No todos for today!</Text>
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Text style={{ fontSize: 18, fontFamily: "Lato_400Regular" }}>
+        No todos yet
+      </Text>
     </View>
   );
 };
@@ -49,6 +51,10 @@ const HomeScreen = () => {
         <Text style={styles.header}>Todos</Text>
         <FlatList
           data={todos}
+          contentContainerStyle={styles.contentContainer}
+          keyExtractor={(item, index) =>
+            item.id ? item.id.toString() : item.text + index
+          }
           renderItem={renderItem}
           ListEmptyComponent={ListEmptyComponent}
           showsVerticalScrollIndicator={false}
@@ -81,6 +87,7 @@ const styles = StyleSheet.create({
     margin: 8,
   },
   emptyText: { fontSize: 21, fontFamily: "Lato_400Regular", margin: 8 },
+  contentContainer: { flexGrow: 1 },
 });
 
 export default HomeScreen;
