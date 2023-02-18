@@ -33,8 +33,8 @@ const PriorityPicker = ({
 };
 
 const styles = StyleSheet.create({
-  color: { borderColor: "#F8CBA6", backgroundColor: "#FFFBEB" },
-  label: { fontFamily: "Lato_400Regular" },
+  color: { borderColor: "#FFE7CC", backgroundColor: "#FFFAD7" },
+  label: { fontFamily: "Lato_400Regular", fontSize: 16 },
 });
 
 export default PriorityPicker;

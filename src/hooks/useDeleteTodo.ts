@@ -1,9 +1,16 @@
 import { deleteDoc, doc } from "firebase/firestore";
-import db from "../services/firebaseConfig";
+import { db } from "../services/firebaseConfig";
 
+/**
+ * Hook that allows you to delete a todo from the database
+ */
 const useDeleteTodo = () => {
+  /**
+   * Delete a todo from the database
+   * @param id - The id of the todo
+   */
   const deleteTodo = async (id: string) => {
-    await deleteDoc(doc(db, "todos", id));
+    return deleteDoc(doc(db, "todos", id));
   };
 
   return {

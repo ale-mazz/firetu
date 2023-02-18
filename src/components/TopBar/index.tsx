@@ -30,7 +30,7 @@ const TopBar = ({ ...rest }: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#F8CBA6",
+    backgroundColor: "#FCDDB0",
     justifyContent: "space-between",
     alignItems: "center",
     flexDirection: "row",

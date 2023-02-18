@@ -9,13 +9,13 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import TopBar from "../../components/TopBar";
 import TodoComponent from "../../components/TodoComponent";
-import { useRecoilValue } from "recoil";
-import todoListState from "../../recoil/todoListState";
-import useListenTodos from "../../hooks/useFetchTodos";
+import useListenTodos from "../../hooks/useListenTodos";
 import TodoButton from "../../components/TodoButton";
 import useDeleteTodo from "../../hooks/useDeleteTodo";
 import useManageTodo from "../../hooks/useManageTodo";
 import { useNavigation } from "@react-navigation/native";
+import { useRecoilValue } from "recoil";
+import todoListState from "../../recoil/todoListState";
 
 const renderItem = ({ item }: ListRenderItemInfo<any>) => {
   const { deleteTodo } = useDeleteTodo();
@@ -66,19 +66,11 @@ const HomeScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#F8CBA6", paddingHorizontal: 12 },
+  container: { flex: 1, backgroundColor: "#FCDDB0", paddingHorizontal: 12 },
   homeView: {
     flex: 1,
-    backgroundColor: "#FFE7CC",
+    backgroundColor: "#FFFAD7",
     borderRadius: 12,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
   },
   emptyView: { flex: 1, alignItems: "center", marginTop: 200 },
   header: {

@@ -19,8 +19,8 @@ const TodoButton = ({ onPress, ...rest }: Props) => {
 const styles = StyleSheet.create({
   button: {
     position: "absolute",
-    bottom: 50,
-    right: 30,
+    bottom: 40,
+    right: 20,
     width: 50,
     height: 50,
     borderRadius: 25,
