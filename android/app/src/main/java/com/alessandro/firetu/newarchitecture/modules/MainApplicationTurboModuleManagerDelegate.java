@@ -1,4 +1,4 @@
-package to.do.firetu.newarchitecture.modules;
+package com.alessandro.firetu.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;

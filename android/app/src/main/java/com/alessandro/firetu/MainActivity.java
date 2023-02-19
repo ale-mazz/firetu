@@ -1,4 +1,4 @@
-package to.do.firetu;
+package com.alessandro.firetu;
 
 import android.os.Build;
 import android.os.Bundle;

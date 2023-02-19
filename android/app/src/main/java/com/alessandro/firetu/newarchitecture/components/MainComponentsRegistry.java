@@ -1,4 +1,4 @@
-package to.do.firetu.newarchitecture.components;
+package com.alessandro.firetu.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

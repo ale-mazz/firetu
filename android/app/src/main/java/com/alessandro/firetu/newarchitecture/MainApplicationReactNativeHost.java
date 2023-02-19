@@ -1,4 +1,4 @@
-package to.do.firetu.newarchitecture;
+package com.alessandro.firetu.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -20,9 +20,9 @@ import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import to.do.firetu.BuildConfig;
-import to.do.firetu.newarchitecture.components.MainComponentsRegistry;
-import to.do.firetu.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.alessandro.firetu.BuildConfig;
+import com.alessandro.firetu.newarchitecture.components.MainComponentsRegistry;
+import com.alessandro.firetu.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

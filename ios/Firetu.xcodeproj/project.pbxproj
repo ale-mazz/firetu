@@ -319,7 +319,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "to.do.firetu";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alessandro.firetu";
 				PRODUCT_NAME = "Firetu";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -344,7 +344,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "to.do.firetu";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alessandro.firetu";
 				PRODUCT_NAME = "Firetu";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

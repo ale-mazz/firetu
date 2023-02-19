@@ -25,7 +25,7 @@
       <dict>
         <key>CFBundleURLSchemes</key>
         <array>
-          <string>to.do.firetu</string>
+          <string>com.alessandro.firetu</string>
         </array>
       </dict>
       <dict>

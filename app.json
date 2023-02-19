@@ -19,14 +19,14 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "to.do.firetu"
+      "bundleIdentifier": "com.alessandro.firetu"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "to.do.firetu"
+      "package": "com.alessandro.firetu"
     },
     "web": {
       "favicon": "./assets/favicon.png"
