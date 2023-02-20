@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Image } from "expo-image";
 import { firetuIcon } from "../../assets/images";
 import { useNavigation } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
 
 interface Props {}
 
@@ -11,6 +12,7 @@ const WelcomePage = ({}: Props) => {
   const navigation = useNavigation<any>();
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar style="light" />
       <View style={styles.centeredInnerContainer}>
         <Image source={firetuIcon} style={styles.logo} contentFit={"cover"} />
         <View style={styles.innerContainer}>

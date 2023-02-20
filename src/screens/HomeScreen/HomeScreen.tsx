@@ -16,6 +16,7 @@ import useManageTodo from "../../hooks/useManageTodo";
 import { useNavigation } from "@react-navigation/native";
 import { useRecoilValue } from "recoil";
 import todoListState from "../../recoil/todoListState";
+import { StatusBar } from "expo-status-bar";
 
 const renderItem = ({ item }: ListRenderItemInfo<any>) => {
   const { deleteTodo } = useDeleteTodo();
@@ -46,6 +47,7 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar style="light" />
       <TopBar />
       <View style={styles.homeView}>
         <Text style={styles.header}>Todos</Text>

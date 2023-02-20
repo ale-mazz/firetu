@@ -17,6 +17,7 @@ import firebase from "firebase/compat";
 import firestore = firebase.firestore;
 import { useRecoilValue } from "recoil";
 import userState from "../../recoil/userState";
+import { StatusBar } from "expo-status-bar";
 
 const TodoForm = () => {
   const navigation = useNavigation();
@@ -70,6 +71,7 @@ const TodoForm = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar style="light" />
       <TouchableOpacity
         style={styles.fakeButton}
         onPress={onBackgroundPress}
@@ -78,6 +80,7 @@ const TodoForm = () => {
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : "height"}
           keyboardVerticalOffset={200}
+          style={styles.flexCenter}
         >
           <View style={styles.modalView} onStartShouldSetResponder={() => true}>
             <Text style={styles.mainHeader}>Insert your new Todo</Text>
@@ -119,8 +122,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    zIndex: 0,
   },
+  flexCenter: { flex: 1, justifyContent: "center" },
   modalView: {
     zIndex: 2,
     backgroundColor: "#FFFAD7",

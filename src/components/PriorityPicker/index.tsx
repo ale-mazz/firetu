@@ -24,16 +24,20 @@ const PriorityPicker = ({
       items={items}
       setOpen={setOpen}
       setValue={setValue}
-      style={styles.color}
-      containerStyle={styles.color}
-      dropDownContainerStyle={styles.color}
+      style={styles.commonStyle}
+      containerStyle={styles.commonStyle}
+      dropDownContainerStyle={styles.commonStyle}
       labelStyle={styles.label}
     />
   );
 };
 
 const styles = StyleSheet.create({
-  color: { borderColor: "#FFE7CC", backgroundColor: "#FFFAD7" },
+  commonStyle: {
+    borderColor: "#FFE7CC",
+    backgroundColor: "#FFFAD7",
+    zIndex: 2,
+  },
   label: { fontFamily: "Lato_400Regular", fontSize: 16 },
 });
 

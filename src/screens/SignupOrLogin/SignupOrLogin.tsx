@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import useFirebaseAuth from "../../hooks/useFirebaseAuth";
+import { StatusBar } from "expo-status-bar";
 
 interface Props {}
 
@@ -20,6 +21,7 @@ const SignupOrLogin = ({}: Props) => {
   const { error, setError, login, signup } = useFirebaseAuth();
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar style="light" />
       <TouchableOpacity
         style={styles.fakeButton}
         activeOpacity={1}
@@ -28,7 +30,7 @@ const SignupOrLogin = ({}: Props) => {
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "position" : "height"}
           keyboardVerticalOffset={100}
-          style={{ flex: 1, justifyContent: "center" }}
+          style={styles.flexCenter}
         >
           <View style={styles.innerView}>
             <Text style={styles.header}>
@@ -82,6 +84,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FCDDB0",
     justifyContent: "center",
   },
+  flexCenter: { flex: 1, justifyContent: "center" },
   innerView: {
     padding: 36,
     margin: 12,

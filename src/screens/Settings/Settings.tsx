@@ -4,6 +4,7 @@ import useFirebaseAuth from "../../hooks/useFirebaseAuth";
 import { useRecoilValue } from "recoil";
 import userState from "../../recoil/userState";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { StatusBar } from "expo-status-bar";
 
 interface Props {}
 
@@ -12,6 +13,7 @@ const Settings = ({}: Props) => {
   const { logout } = useFirebaseAuth();
   return (
     <SafeAreaView edges={["bottom"]} style={styles.container}>
+      <StatusBar style="light" />
       <View style={styles.innerView}>
         <View style={{ flex: 1, flexDirection: "row", alignItems: "center" }}>
           <Text style={styles.header1}>Developed by </Text>
