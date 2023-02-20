@@ -1,9 +1,15 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import useFirebaseAuth from "../../hooks/useFirebaseAuth";
 import { useRecoilValue } from "recoil";
 import userState from "../../recoil/userState";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { Edge, SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 
 interface Props {}
@@ -11,16 +17,18 @@ interface Props {}
 const Settings = ({}: Props) => {
   const user = useRecoilValue(userState);
   const { logout } = useFirebaseAuth();
+  const edges: Edge[] = Platform.OS === "ios" ? ["bottom"] : ["top", "bottom"];
+
   return (
-    <SafeAreaView edges={["bottom"]} style={styles.container}>
-      <StatusBar style="light" />
+    <SafeAreaView edges={edges} style={styles.container}>
+      <StatusBar style={Platform.OS === "android" ? "dark" : "light"} />
       <View style={styles.innerView}>
-        <View style={{ flex: 1, flexDirection: "row", alignItems: "center" }}>
+        <View style={styles.textContainer}>
           <Text style={styles.header1}>Developed by </Text>
           <Text style={styles.header2}>Alessandro Mazzon </Text>
           <Text style={styles.header1}>with ❤️</Text>
         </View>
-        <View style={{ flexDirection: "row" }}>
+        <View style={styles.flexRow}>
           <Text style={styles.middleText}>Current logged in user: </Text>
           <Text style={styles.middleTextBold}>{user?.email}</Text>
         </View>
@@ -37,8 +45,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#FCDDB0",
-    paddingHorizontal: 12,
+    paddingHorizontal: 14,
     paddingTop: 12,
+  },
+  flexRow: { flexDirection: "row", marginBottom: 24 },
+  textContainer: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
   },
   innerView: {
     flex: 1,
@@ -57,7 +72,8 @@ const styles = StyleSheet.create({
     fontFamily: "Lato_700Bold",
   },
   button: {
-    padding: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 48,
     borderRadius: 8,
     backgroundColor: "#FF9F9F",
     marginBottom: 36,
@@ -73,14 +89,12 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: "center",
     color: "#FF9F9F",
-    marginBottom: 12,
   },
   middleTextBold: {
     fontFamily: "Lato_700Bold",
     fontSize: 16,
     textAlign: "center",
     color: "#E97777",
-    marginBottom: 12,
   },
 });
 

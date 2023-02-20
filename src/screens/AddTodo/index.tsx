@@ -57,7 +57,7 @@ const TodoForm = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar style="light" />
+      <StatusBar style="dark" />
       <TouchableOpacity
         style={styles.fakeButton}
         onPress={onBackgroundPress}
@@ -65,13 +65,16 @@ const TodoForm = () => {
       >
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : "height"}
-          keyboardVerticalOffset={200}
+          keyboardVerticalOffset={100}
           style={styles.flexCenter}
         >
           <View style={styles.modalView} onStartShouldSetResponder={() => true}>
             <Text style={styles.mainHeader}>Insert your new Todo</Text>
             <Text style={styles.header}>Add some text</Text>
             <TextInput
+              clearButtonMode={"always"}
+              autoCorrect={true}
+              autoFocus={true}
               multiline={true}
               onChangeText={(e) => setTodoText(e)}
               value={todoText}

@@ -12,7 +12,7 @@ const WelcomePage = ({}: Props) => {
   const navigation = useNavigation<any>();
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar style="light" />
+      <StatusBar style="dark" />
       <View style={styles.centeredInnerContainer}>
         <Image source={firetuIcon} style={styles.logo} contentFit={"cover"} />
         <View style={styles.innerContainer}>

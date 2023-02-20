@@ -21,14 +21,14 @@ const SignupOrLogin = ({}: Props) => {
   const { error, setError, login, signup } = useFirebaseAuth();
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar style="light" />
+      <StatusBar style="dark" />
       <TouchableOpacity
         style={styles.fakeButton}
         activeOpacity={1}
         onPress={Keyboard.dismiss}
       >
         <KeyboardAvoidingView
-          behavior={Platform.OS === "ios" ? "position" : "height"}
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
           keyboardVerticalOffset={100}
           style={styles.flexCenter}
         >
@@ -42,6 +42,7 @@ const SignupOrLogin = ({}: Props) => {
               placeholder={"Email"}
               value={email}
               clearButtonMode={"always"}
+              autoCapitalize={"none"}
               autoFocus={true}
               autoCorrect={true}
               autoComplete={"email"}
