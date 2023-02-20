@@ -28,6 +28,7 @@ const SignupOrLogin = ({}: Props) => {
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "position" : "height"}
           keyboardVerticalOffset={100}
+          style={{ flex: 1, justifyContent: "center" }}
         >
           <View style={styles.innerView}>
             <Text style={styles.header}>
