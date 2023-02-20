@@ -9,6 +9,10 @@ import {
 import { Todo, TodoPriority } from "../../types/todo";
 import { Feather } from "@expo/vector-icons";
 
+/**
+ * Convert priority into color for the todo
+ * @param priority
+ */
 const convertPriorityIntoColor = (priority: TodoPriority) => {
   switch (priority) {
     case TodoPriority.LOW:
@@ -22,11 +26,23 @@ const convertPriorityIntoColor = (priority: TodoPriority) => {
   }
 };
 
+/**
+ * Todo component
+ * @param item - todo item
+ * @param onPressDelete - function to call on delete button press
+ */
 interface Props extends TouchableOpacityProps {
   item: Todo;
   onPressDelete: () => void;
 }
 
+/**
+ * Todo component to display todo item
+ * @param item - todo item
+ * @param onPressDelete - function to call on delete button press
+ * @param rest - other props
+ * @constructor
+ */
 const TodoComponent = ({ item, onPressDelete, ...rest }: Props) => {
   const date = new Date(item.timestamp.seconds * 1000).toLocaleDateString(
     "it-IT",

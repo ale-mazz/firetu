@@ -6,6 +6,7 @@ import userState from "../recoil/userState";
 
 /**
  * Hook that allows you to listen to the auth state
+ * @returns {object} user, initializing - The user and whether the app is initializing
  */
 const useListenToAuth = () => {
   const [initializing, setInitializing] = useState(true);

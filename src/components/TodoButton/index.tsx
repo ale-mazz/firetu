@@ -8,6 +8,12 @@ import { Feather } from "@expo/vector-icons";
 
 interface Props extends TouchableOpacityProps {}
 
+/**
+ * Button to add new todo
+ * @param onPress - function to call on press event
+ * @param rest - other props
+ * @constructor
+ */
 const TodoButton = ({ onPress, ...rest }: Props) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.button} {...rest}>

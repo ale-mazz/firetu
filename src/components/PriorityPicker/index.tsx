@@ -6,6 +6,14 @@ import DropDownPicker, {
 import { TodoPriority } from "../../types/todo";
 import { StyleSheet } from "react-native";
 
+/**
+ * Priority picker component for the todo
+ * @param value - current priority
+ * @param setValue - function to set priority
+ * @param open - is picker opened
+ * @param setOpen - function to set picker open state
+ * @constructor
+ */
 const PriorityPicker = ({
   value,
   setValue,

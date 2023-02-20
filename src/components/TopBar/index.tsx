@@ -11,6 +11,11 @@ import { useNavigation } from "@react-navigation/native";
 
 interface Props extends ViewProps {}
 
+/**
+ * Top bar component to display on top of the screen
+ * @param rest - other props
+ * @constructor
+ */
 const TopBar = ({ ...rest }: Props) => {
   const navigation = useNavigation<any>();
 

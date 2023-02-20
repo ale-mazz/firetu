@@ -4,6 +4,7 @@ import { Todo } from "../types/todo";
 
 /**
  * Hook that allows you to add a todo to the database
+ * @returns {object} addTodo
  */
 const useAddTodo = () => {
   /**

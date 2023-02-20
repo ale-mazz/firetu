@@ -3,6 +3,7 @@ import { db } from "../services/firebaseConfig";
 
 /**
  * Hook that allows you to delete a todo from the database
+ * @returns {object} deleteTodo
  */
 const useDeleteTodo = () => {
   /**

@@ -18,35 +18,21 @@ import firestore = firebase.firestore;
 import { useRecoilValue } from "recoil";
 import userState from "../../recoil/userState";
 import { StatusBar } from "expo-status-bar";
+import keyboardState from "../../recoil/keyboardState";
+import useListenToKeyboardStatusChange from "../../hooks/useListenToKeyboardStatusChange";
 
+/**
+ * Screen to add a new todo item
+ * @constructor
+ */
 const TodoForm = () => {
   const navigation = useNavigation();
   const { addTodo } = useAddTodo();
   const [value, setValue] = useState<number>(1);
   const [isPickerOpened, setIsPickerOpened] = useState<boolean>(false);
   const [todoText, setTodoText] = useState<string>("");
-  const [isKeyboardVisible, setKeyboardVisible] = useState(false);
   const user = useRecoilValue(userState);
-
-  useEffect(() => {
-    const keyboardDidShowListener = Keyboard.addListener(
-      "keyboardDidShow",
-      () => {
-        setKeyboardVisible(true);
-      }
-    );
-    const keyboardDidHideListener = Keyboard.addListener(
-      "keyboardDidHide",
-      () => {
-        setKeyboardVisible(false);
-      }
-    );
-
-    return () => {
-      keyboardDidHideListener.remove();
-      keyboardDidShowListener.remove();
-    };
-  }, []);
+  const isKeyboardVisible = useRecoilValue(keyboardState);
 
   const addNewTodoAndExit = async () => {
     navigation.goBack();

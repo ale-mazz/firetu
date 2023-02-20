@@ -7,6 +7,7 @@ import {
 
 /**
  * Hook to initialize the app
+ * @returns {object} fontsLoaded - Whether the fonts are loaded
  */
 const useInitializeApp = () => {
   const [fontsLoaded] = useFonts({

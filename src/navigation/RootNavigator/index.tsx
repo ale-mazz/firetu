@@ -9,6 +9,7 @@ import useListenToAuth from "../../hooks/useListenToAuth";
 import { useCallback, useEffect, useState } from "react";
 import * as SplashScreen from "expo-splash-screen";
 import SignupOrLogin from "../../screens/SignupOrLogin/SignupOrLogin";
+import useListenToKeyboardStatusChange from "../../hooks/useListenToKeyboardStatusChange";
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,7 @@ export const RootNavigator = () => {
   const [initialRoute, setInitialRoute] = useState("WelcomePage");
   const { fontsLoaded } = useInitializeApp();
   const { user, initializing } = useListenToAuth();
+  useListenToKeyboardStatusChange();
 
   const onReady = useCallback(async () => {
     if (fontsLoaded && !initializing) {

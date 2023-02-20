@@ -7,12 +7,16 @@ import {
 import { auth } from "../services/firebaseConfig";
 import { useNavigation } from "@react-navigation/native";
 
+/**
+ * Custom hook to handle firebase authentication
+ * @returns {object} login, signup, logout, error, setError
+ */
 const useFirebaseAuth = () => {
   const [error, setError] = useState<string | null>();
   const navigation = useNavigation<any>();
 
   /**
-   * Login with email and password
+   * Login with email and password and navigate to Home
    */
   const login = useCallback(
     async (email: string, password: string) => {
@@ -24,7 +28,7 @@ const useFirebaseAuth = () => {
   );
 
   /**
-   * Signup with email and password
+   * Signup with email and password and navigate to home
    */
   const signup = useCallback(
     async (email: string, password: string) => {
@@ -36,7 +40,7 @@ const useFirebaseAuth = () => {
   );
 
   /**
-   * Logout
+   * Logout and navigate to WelcomePage
    */
   const logout = useCallback(async () => {
     return signOut(auth)

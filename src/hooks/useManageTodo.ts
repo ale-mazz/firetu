@@ -5,6 +5,7 @@ import { converter } from "../services/firebaseUtils";
 
 /**
  * Hook that allows you to manage the todos from the database
+ * @returns {object} updateTodoStatus - Update the status of a todo
  */
 const useManageTodo = () => {
   /**
