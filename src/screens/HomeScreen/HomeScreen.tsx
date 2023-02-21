@@ -17,15 +17,16 @@ import { useNavigation } from "@react-navigation/native";
 import { useRecoilValue } from "recoil";
 import todoListState from "../../recoil/todoListState";
 import { StatusBar } from "expo-status-bar";
+import { Todo } from "../../types/todo";
 
-const renderItem = ({ item }: ListRenderItemInfo<any>) => {
+const renderItem = ({ item }: ListRenderItemInfo<Todo>) => {
   const { deleteTodo } = useDeleteTodo();
   const { updateTodoStatus } = useManageTodo();
   return (
     <TodoComponent
       item={item}
-      onPressDelete={() => deleteTodo(item.id.toString())}
-      onPress={() => updateTodoStatus(item.id.toString())}
+      onPressDelete={() => deleteTodo(item.id!)}
+      onPress={() => updateTodoStatus(item.id!)}
     />
   );
 };

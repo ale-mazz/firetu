@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  ActivityIndicator,
   Platform,
   StyleSheet,
   Text,
@@ -16,7 +17,7 @@ interface Props {}
 
 const Settings = ({}: Props) => {
   const user = useRecoilValue(userState);
-  const { logout } = useFirebaseAuth();
+  const { logout, loading } = useFirebaseAuth();
   const edges: Edge[] = Platform.OS === "ios" ? ["bottom"] : ["top", "bottom"];
 
   return (
@@ -36,6 +37,10 @@ const Settings = ({}: Props) => {
         <TouchableOpacity style={styles.button} onPress={logout}>
           <Text style={styles.buttonText}>Logout</Text>
         </TouchableOpacity>
+        <ActivityIndicator
+          animating={loading}
+          style={styles.loadingIndicator}
+        />
       </View>
     </SafeAreaView>
   );
@@ -76,7 +81,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 48,
     borderRadius: 8,
     backgroundColor: "#FF9F9F",
-    marginBottom: 36,
+    marginBottom: 12,
   },
   buttonText: {
     fontFamily: "Lato_700Bold",
@@ -96,6 +101,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#E97777",
   },
+  loadingIndicator: { marginBottom: 12 },
 });
 
 export default Settings;

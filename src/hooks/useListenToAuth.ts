@@ -9,7 +9,7 @@ import userState from "../recoil/userState";
  * @returns {object} user, initializing - The user and whether the app is initializing
  */
 const useListenToAuth = () => {
-  const [initializing, setInitializing] = useState(true);
+  const [initializing, setInitializing] = useState<boolean>(true);
   const [user, setUser] = useRecoilState(userState);
   /**
    * Listen to the auth state and update the userState

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  ActivityIndicator,
   Keyboard,
   KeyboardAvoidingView,
   Platform,
@@ -12,13 +13,14 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import useFirebaseAuth from "../../hooks/useFirebaseAuth";
 import { StatusBar } from "expo-status-bar";
+import { getAuthErrorMessage } from "../../utils/getAuthErrorMessage";
 
 interface Props {}
 
 const SignupOrLogin = ({}: Props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { error, setError, login, signup } = useFirebaseAuth();
+  const { error, setError, login, signup, loading } = useFirebaseAuth();
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="dark" />
@@ -71,8 +73,14 @@ const SignupOrLogin = ({}: Props) => {
             >
               <Text style={styles.buttonText}>Signup</Text>
             </TouchableOpacity>
+            <ActivityIndicator
+              animating={loading}
+              style={styles.loadingIndicator}
+            />
           </View>
-          {error && <Text style={styles.errorText}>{error}</Text>}
+          {error && (
+            <Text style={styles.errorText}>{getAuthErrorMessage(error)}</Text>
+          )}
         </KeyboardAvoidingView>
       </TouchableOpacity>
     </SafeAreaView>
@@ -126,6 +134,7 @@ const styles = StyleSheet.create({
     marginVertical: 8,
   },
   fakeButton: { flex: 1, justifyContent: "center" },
+  loadingIndicator: { marginTop: 24 },
 });
 
 export default SignupOrLogin;

@@ -14,6 +14,7 @@ import { Feather } from "@expo/vector-icons";
  * @param priority
  */
 const convertPriorityIntoColor = (priority: TodoPriority) => {
+  // Convert priority into color
   switch (priority) {
     case TodoPriority.LOW:
       return "#95E1D3";
