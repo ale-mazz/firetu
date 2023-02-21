@@ -1,7 +1,10 @@
 import { AuthError } from "../types/authError";
 
+/**
+ * Get error message from error code returned by Firebase
+ * @param errorCode Error code returned by Firebase Auth
+ */
 export const getAuthErrorMessage = (errorCode: string) => {
-  console.log(errorCode);
   switch (errorCode) {
     case AuthError.EMAIL_ALREADY_IN_USE:
       return "Email already in use";

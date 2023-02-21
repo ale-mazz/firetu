@@ -1,8 +1,7 @@
 /**
- * @description
  * The possible error codes that can be returned when using the auth
- * module. These are the error codes that can be returned by the
- * {@link AuthErrorCode} type.
+ * module.
+ * These are the error codes that can be returned by the server.
  */
 export enum AuthError {
   /**

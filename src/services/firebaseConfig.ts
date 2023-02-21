@@ -11,7 +11,9 @@ import {
   STORAGE_BUCKET,
 } from "@env";
 
-// Firebase config
+/**
+ * Firebase configuration
+ */
 const firebaseConfig = {
   apiKey: API_KEY,
   authDomain: AUTH_DOMAIN,
@@ -22,7 +24,7 @@ const firebaseConfig = {
   measurementId: MEASUREMENT_ID,
 };
 
-// Initialize Firebase and Firestore
+// Initialize Firebase app and export auth and db instances
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
